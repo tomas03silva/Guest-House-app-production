@@ -39,7 +39,7 @@ export async function GET() {
       name: p.displayName.text,
       rating: p.rating || 0,
       category: category,
-      description: p.editorialSummary?.text || "Ponto de interesse local perfeito para explorar durante a sua estadia em Esposende.",
+      description: p.editorialSummary?.text || "A perfect local point of interest to explore during your stay in Esposende.",
       websiteUri: p.websiteUri,
       phone: p.internationalPhoneNumber || null,
       distance: distanceDegrees

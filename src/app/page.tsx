@@ -276,8 +276,8 @@ export default function GuestHouseApp() {
           
           <Card className="border-slate-200 bg-[#5499c7]/70 shadow-sm">
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg text-blue-900">Pontos de Visita</CardTitle>
-              <CardDescription className=" text-blue-200" >Locais turísticos e naturais na vizinhança.</CardDescription>
+              <CardTitle className="text-lg text-blue-900">Points of Interest</CardTitle>
+              <CardDescription className=" text-blue-200" >Tourist and natural sites in the area.</CardDescription>
             </CardHeader>
             <CardContent>
               {loadingAttractions ? (
@@ -301,8 +301,8 @@ export default function GuestHouseApp() {
                           <p className="text-xs text-slate-600 leading-relaxed">{attraction.description}</p>
                           {attraction.phone && <p className="text-[11px] text-slate-500 flex items-center gap-1.5"><Phone className="w-3 h-3 text-slate-400" /> {attraction.phone}</p>}
                           <div className="flex gap-2 pt-1">
-                            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(attraction.name + ' Esposende')}`} target="_blank" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-md text-[10px] font-bold uppercase transition-colors">Ver no Mapa</a>
-                            {attraction.websiteUri && <a href={attraction.websiteUri} target="_blank" className="flex-1 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-center py-2 rounded-md text-[10px] font-bold uppercase flex items-center justify-center gap-1 transition-colors">Website Oficial <ExternalLink className="w-3 h-3" /></a>}
+                            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(attraction.name + ' Esposende')}`} target="_blank" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-md text-[10px] font-bold uppercase transition-colors">View on Map</a>
+                            {attraction.websiteUri && <a href={attraction.websiteUri} target="_blank" className="flex-1 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-center py-2 rounded-md text-[10px] font-bold uppercase flex items-center justify-center gap-1 transition-colors">Official Website <ExternalLink className="w-3 h-3" /></a>}
                           </div>
                         </div>
                       )}
@@ -310,7 +310,7 @@ export default function GuestHouseApp() {
                   ))}
                   {attractions.length > 4 && (
                     <button onClick={() => setIsExpandedAttractions(!isExpandedAttractions)} className="w-full mt-4 py-3 bg-slate-100 text-blue-700 hover:bg-slate-200 text-xs font-bold uppercase tracking-wide rounded-md transition-colors flex justify-center items-center">
-                      {isExpandedAttractions ? "Ver Menos Atrações" : "Ver Mais Pontos"}
+                      {isExpandedAttractions ? "See More" : "See Less"}
                     </button>
                   )}
                 </div>
@@ -320,8 +320,8 @@ export default function GuestHouseApp() {
 
           <Card className="border-slate-200 bg-[#5499c9]/70 shadow-sm">
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg text-blue-900">Onde Comer / Beber?</CardTitle>
-              <CardDescription className="text-blue-200" >Restaurantes e bares na vizinhança.</CardDescription>
+              <CardTitle className="text-lg text-blue-900">Where to Eat / Drink?</CardTitle>
+              <CardDescription className="text-blue-200" >Restaurants and bars in the area.</CardDescription>
             </CardHeader>
             <CardContent>
               {loadingRestaurants ? (
@@ -344,17 +344,17 @@ export default function GuestHouseApp() {
                         <div className="mt-3 p-3 bg-slate-100/50 rounded-lg border border-slate-100 animate-in slide-in-from-top-2 duration-200">
                           <div className="flex justify-between items-center mb-3 pb-2 border-b border-slate-200/60">
                             <span className="text-xs font-semibold text-slate-700">{getPriceIcon(place.priceLevel)}</span>
-                            {place.opening_hours?.open_now ? <span className="text-[10px] uppercase tracking-wider font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded-full">Aberto agora</span> : <span className="text-[10px] uppercase tracking-wider font-bold text-slate-500 bg-slate-200 px-2 py-0.5 rounded-full">Fechado de momento</span>}
+                            {place.opening_hours?.open_now ? <span className="text-[10px] uppercase tracking-wider font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded-full">Open Now</span> : <span className="text-[10px] uppercase tracking-wider font-bold text-slate-500 bg-slate-200 px-2 py-0.5 rounded-full">Closed for now</span>}
                           </div>
                           {place.weekdayDescriptions?.length > 0 && (
                             <div className="mb-3">
-                              <p className="text-[10px] font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1 mb-1.5"><Clock className="w-3 h-3 text-slate-500" /> Horário Semanal</p>
+                              <p className="text-[10px] font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1 mb-1.5"><Clock className="w-3 h-3 text-slate-500" /> Weekly Hours</p>
                               <ul className="text-[10px] text-slate-600 space-y-1 pl-4">{place.weekdayDescriptions.map((desc: string, i: number) => <li key={i}>{desc}</li>)}</ul>
                             </div>
                           )}
                           <div className="flex gap-2 mt-2">
-                            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name + ' Esposende')}`} target="_blank" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-md text-[10px] font-bold uppercase transition-colors">Ver no Mapa</a>
-                            {place.websiteUri && <a href={place.websiteUri} target="_blank" className="flex-1 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-center py-2 rounded-md text-[10px] font-bold uppercase flex items-center justify-center gap-1 transition-colors">Ver Menu <ExternalLink className="w-3 h-3" /></a>}
+                            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name + ' Esposende')}`} target="_blank" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 rounded-md text-[10px] font-bold uppercase transition-colors">View on Map</a>
+                            {place.websiteUri && <a href={place.websiteUri} target="_blank" className="flex-1 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-center py-2 rounded-md text-[10px] font-bold uppercase flex items-center justify-center gap-1 transition-colors">View Menu <ExternalLink className="w-3 h-3" /></a>}
                           </div>
                         </div>
                       )}
@@ -362,7 +362,7 @@ export default function GuestHouseApp() {
                   ))}
                   {restaurants.length > 5 && (
                     <button onClick={() => setIsExpandedRestaurants(!isExpandedRestaurants)} className="w-full mt-4 py-3 bg-slate-100 text-blue-700 hover:bg-slate-200 text-xs font-bold uppercase tracking-wide rounded-md transition-colors flex justify-center items-center">
-                      {isExpandedRestaurants ? "Ver Menos Opções" : "Ver Mais Locais"}
+                      {isExpandedRestaurants ? "View Less Options" : "View More Places"}
                     </button>
                   )}
                 </div>
@@ -373,36 +373,36 @@ export default function GuestHouseApp() {
 
         {/* ABA 2: A ETAPA DE AMANHÃ */}
         <TabsContent value="etapa" className="flex-1 mt-0 animate-in fade-in duration-500 space-y-4">
-          <h2 className="text-xl font-bold text-slate-800 tracking-tight">A Etapa de Amanhã</h2>
+          <h2 className="text-xl font-bold text-slate-800 tracking-tight">Tomorro's Stage</h2>
           
           <Card className="border-slate-200 shadow-sm bg-gradient-to-br from-blue-900 to-slate-900 text-white border-0">
             <CardHeader className="pb-2">
-              <CardDescription className="text-blue-200 font-medium uppercase tracking-wider text-[10px]">Caminho Português da Costa</CardDescription>
+              <CardDescription className="text-blue-200 font-medium uppercase tracking-wider text-[10px]">Portuguese Coast Path</CardDescription>
               <CardTitle className="text-2xl">Esposende → Viana</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-3 gap-4 mt-2">
-                <div className="flex flex-col"><span className="text-blue-300 text-[10px] uppercase font-bold">Distância</span><span className="text-xl font-bold">25.5 <span className="text-sm font-normal text-blue-200">km</span></span></div>
-                <div className="flex flex-col"><span className="text-blue-300 text-[10px] uppercase font-bold">Dificuldade</span><span className="text-xl font-bold text-emerald-400">Leve</span></div>
-                <div className="flex flex-col"><span className="text-blue-300 text-[10px] uppercase font-bold">Tempo Médio</span><span className="text-xl font-bold">6 <span className="text-sm font-normal text-blue-200">horas</span></span></div>
+                <div className="flex flex-col"><span className="text-blue-300 text-[10px] uppercase font-bold">Distance</span><span className="text-xl font-bold">25.5 <span className="text-sm font-normal text-blue-200">km</span></span></div>
+                <div className="flex flex-col"><span className="text-blue-300 text-[10px] uppercase font-bold">Difficulty</span><span className="text-xl font-bold text-emerald-400">Light</span></div>
+                <div className="flex flex-col"><span className="text-blue-300 text-[10px] uppercase font-bold">Average Time</span><span className="text-xl font-bold">6 <span className="text-sm font-normal text-blue-200">hours</span></span></div>
               </div>
             </CardContent>
           </Card>
 
           <Card className="border-slate-200 shadow-sm bg-[#F7A06E]/70">
-            <CardHeader className="pb-2"><CardTitle className="text-lg text-blue-900 flex items-center justify-between">Previsão para Amanhã <span className="text-[10px] font-normal text-slate-400 bg-slate-100 px-2 py-1 rounded-full">Fonte: IPMA</span></CardTitle></CardHeader>
+            <CardHeader className="pb-2"><CardTitle className="text-lg text-blue-900 flex items-center justify-between">Tomorrow's Forecast <span className="text-[10px] font-normal text-slate-400 bg-slate-100 px-2 py-1 rounded-full">Source: IPMA</span></CardTitle></CardHeader>
             <CardContent>
               {loadingWeather ? ( <div className="flex justify-center py-4"><Loader2 className="w-5 h-5 animate-spin text-blue-600" /></div> ) : weather ? (
                 <div className="flex items-center justify-between bg-blue-50/50 p-4 rounded-lg border border-blue-100">
-                  <div className="flex flex-col"><span className="text-3xl font-black text-slate-800">{weather.tMax}°<span className="text-lg text-slate-500 font-medium">/ {weather.tMin}°</span></span><span className="text-xs font-semibold text-blue-700 mt-1">Destino: Viana do Castelo</span></div>
-                  <div className="flex flex-col items-end"><div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-100"><span className="text-lg">{weather.precipProb > 50 ? '🌧️' : weather.precipProb > 20 ? '⛅' : '☀️'}</span><span className="text-xs font-bold text-slate-700">{weather.precipProb}% Chuva</span></div></div>
+                  <div className="flex flex-col"><span className="text-3xl font-black text-slate-800">{weather.tMax}°<span className="text-lg text-slate-500 font-medium">/ {weather.tMin}°</span></span><span className="text-xs font-semibold text-blue-700 mt-1">Destiny: Viana do Castelo</span></div>
+                  <div className="flex flex-col items-end"><div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-100"><span className="text-lg">{weather.precipProb > 50 ? '🌧️' : weather.precipProb > 20 ? '⛅' : '☀️'}</span><span className="text-xs font-bold text-slate-700">{weather.precipProb}% Rain</span></div></div>
                 </div>
-              ) : ( <p className="text-sm text-slate-500">Dados meteorológicos indisponíveis.</p> )}
+              ) : ( <p className="text-sm text-slate-500">Weather data unavailable.</p> )}
             </CardContent>
           </Card>
 
           <Card className="border-slate-200 shadow-sm bg-[#F7A06E]/70">
-            <CardHeader className="pb-4"><CardTitle className="text-lg text-blue-900 flex items-center justify-between">Perfil de Elevação <span className="text-xs font-bold text-slate-500">↑ 180m Acumulados</span></CardTitle></CardHeader>
+            <CardHeader className="pb-4"><CardTitle className="text-lg text-blue-900 flex items-center justify-between">Elevation Profile <span className="text-xs font-bold text-slate-500">↑ 180m Cumulative</span></CardTitle></CardHeader>
             <CardContent>
               <div className="relative h-24 w-full flex items-end border-b border-slate-200 gap-1 pb-1">
                 <div className="w-full bg-blue-200 rounded-t-sm" style={{ height: '10%' }}></div>
@@ -422,33 +422,33 @@ export default function GuestHouseApp() {
           </Card>
 
           <Card className="border-slate-200 shadow-sm bg-[#F7A06E]/70">
-            <CardHeader className="pb-2"><CardTitle className="text-lg text-blue-900">Passagem Obrigatória</CardTitle><CardDescription className="text-blue-900" >Locais históricos e geográficos diretamente na seta amarela.</CardDescription></CardHeader>
+            <CardHeader className="pb-2"><CardTitle className="text-lg text-blue-900">Mandatory Passage</CardTitle><CardDescription className="text-blue-900" >Historical and geographical locations directly on the yellow arrow.</CardDescription></CardHeader>
             <CardContent className="pt-2">
               <div className="relative border-l-2 border-blue-100 space-y-6 ml-3">
                 <div className="relative pl-8">
                   <div className="absolute -left-[17px] top-0 bg-blue-600 text-white text-[9px] font-bold w-8 h-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm">3k</div>
                   <h4 className="font-semibold text-sm text-slate-800">Almas das Marinhas</h4>
-                  <p className="text-xs text-slate-700 mt-0.5 leading-relaxed">Cruzeiro histórico e local tradicional de paragem e oração dos peregrinos desde a Idade Média. Fica logo à saída do núcleo urbano de Esposende.</p>
+                  <p className="text-xs text-slate-700 mt-0.5 leading-relaxed">A historic wayside cross and a traditional stopping and prayer point for pilgrims since the Middle Ages. It is located just outside the town center of Esposende.</p>
                 </div>
                 <div className="relative pl-8">
                   <div className="absolute -left-[17px] top-0 bg-blue-600 text-white text-[9px] font-bold w-8 h-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm">9k</div>
                   <h4 className="font-semibold text-sm text-slate-800">Ponte de Tábuas (Rio Neiva)</h4>
-                  <p className="text-xs text-slate-700 mt-0.5 leading-relaxed">A famosa e pitoresca passagem pedonal feita em estacas de madeira sobre o Rio Neiva. É um dos pontos mais fotografados e emblemáticos de todo o Caminho da Costa.</p>
+                  <p className="text-xs text-slate-700 mt-0.5 leading-relaxed">A famous and picturesque pedestrian passage made of wooden stakes over the Rio Neiva. It is one of the most photographed and emblematic points of the entire Costa Route.</p>
                 </div>
                 <div className="relative pl-8">
                   <div className="absolute -left-[17px] top-0 bg-amber-500 text-white text-[9px] font-bold w-8 h-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm">11k</div>
-                  <h4 className="font-semibold text-sm text-slate-800 flex items-center gap-1.5 flex-wrap">Igreja de Santiago de Castelo do Neiva <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded mt-1 sm:mt-0">★ Histórico</span></h4>
-                  <p className="text-xs text-slate-700 mt-0.5 leading-relaxed">Provavelmente a igreja consagrada a Santiago **mais antiga do mundo** fora da Galiza (ano 862). Tem um carimbo histórico obrigatório para a credencial logo no átrio.</p>
+                  <h4 className="font-semibold text-sm text-slate-800 flex items-center gap-1.5 flex-wrap">Igreja de Santiago de Castelo do Neiva <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded mt-1 sm:mt-0">★ Historical</span></h4>
+                  <p className="text-xs text-slate-700 mt-0.5 leading-relaxed">Probably the **oldest church dedicated to Santiago** in the world outside of Galicia (year 862). It has a mandatory historical stamp for the credential right in the atrium.</p>
                 </div>
                 <div className="relative pl-8">
                   <div className="absolute -left-[17px] top-0 bg-blue-600 text-white text-[9px] font-bold w-8 h-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm">24k</div>
                   <h4 className="font-semibold text-sm text-slate-800">Pinhal e Dunas do Cabedelo</h4>
-                  <p className="text-xs text-slate-700 mt-0.5 leading-relaxed">Troço final de passadiços de madeira que atravessa o pinhal bravo e as dunas, oferecendo a primeira vista panorâmica sobre a foz do Rio Lima e o Monte de Santa Luzia.</p>
+                  <p className="text-xs text-slate-700 mt-0.5 leading-relaxed">The final section of the wooden boardwalks, crossing the maritime pine forest and the dunes, offering the first panoramic view of the Lima River estuary and Monte de Santa Luzia.</p>
                 </div>
                 <div className="relative pl-8">
                   <div className="absolute -left-[17px] top-0 bg-emerald-600 text-white text-[9px] font-bold w-8 h-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm">25k</div>
                   <h4 className="font-semibold text-sm text-slate-800">Ponte Eiffel</h4>
-                  <p className="text-xs text-slate-700 mt-0.5 leading-relaxed">A icónica estrutura de ferro projetada pela mítica casa de Gustave Eiffel in 1878. Atravessá-la no passadiço lateral marca a entrada triunfal e o fim da etapa em Viana do Castelo.</p>
+                  <p className="text-xs text-slate-700 mt-0.5 leading-relaxed">A iconic iron structure designed by the mythical Gustave Eiffel company in 1878. Crossing it on the lateral walkway marks the triumphant entrance and the end of the stage in Viana do Castelo.</p>
                 </div>
               </div>
             </CardContent>
@@ -460,13 +460,13 @@ export default function GuestHouseApp() {
           
           <div className="flex justify-between items-center bg-slate-900 text-slate-100 p-4 rounded-xl shadow-sm border border-slate-800">
             <div className="flex flex-col">
-              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">ID de Reserva Ativo</span>
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Active Reservation ID</span>
               <span className="text-xs font-mono font-bold text-blue-400">{reservationId}</span>
             </div>
             <div className="text-right">
-              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Quota Estrita</span>
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Strict Quota</span>
               <span className={`text-[10px] font-black uppercase tracking-wide px-2 py-0.5 rounded-full ${hasUserUploadedPhoto ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'}`}>
-                {hasUserUploadedPhoto ? '1 / 1 Esgotada' : '0 / 1 Disponível'}
+                {hasUserUploadedPhoto ? '1 / 1 Sold Out' : '0 / 1 Available'}
               </span>
             </div>
           </div>
@@ -477,14 +477,14 @@ export default function GuestHouseApp() {
                 <div className="bg-blue-100 p-3 rounded-full mb-2 text-blue-600">
                   <Camera className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-sm text-slate-700 mb-1">Porta de Entrada</h3>
+                <h3 className="font-bold text-sm text-slate-700 mb-1">Entrace Door</h3>
                 <p className="text-[11px] text-slate-500 mb-4 px-4 leading-relaxed">
-                  Obrigatoriamente uma fotografia sua ou do seu grupo de caminhada na icónica **porta de entrada principal da Guest House**.
+                  A photo of you or your hiking group at the iconic **main entrance of the Guest House**.
                 </p>
                 
                 <label className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-full text-xs uppercase tracking-wider cursor-pointer transition-colors shadow-sm flex items-center gap-2">
                   <Camera className="w-3.5 h-3.5" />
-                  Registar Foto Única
+                  Register Your Memory
                   <input 
                     type="file" 
                     accept="image/*" 
@@ -502,21 +502,21 @@ export default function GuestHouseApp() {
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-xs text-emerald-950">Memória Digital Coletiva Registada!</h4>
-                  <p className="text-[11px] text-emerald-700">Obrigado por deixar a sua marca. A sua quota está preenchida para esta estadia.</p>
+                  <h4 className="font-bold text-xs text-emerald-950">Collective Digital Memory Registered!</h4>
+                  <p className="text-[11px] text-emerald-700">Thank you for leaving your mark. Your quota is filled for this stay.</p>
                 </div>
               </CardContent>
             </Card>
           )}
 
           <div className="pt-2">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Mural Histórico de Caminhantes</h3>
+            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Historical Hiker Mural</h3>
             
             {allPhotos.length === 0 ? (
               <div className="text-center py-8 px-4 bg-slate-100/50 rounded-xl border border-dashed border-slate-200">
                 <ImageIcon className="w-8 h-8 text-slate-300 mx-auto mb-2" />
-                <p className="text-xs text-slate-500 font-medium">Ainda não há memórias registadas.</p>
-                <p className="text-[10px] text-slate-400 mt-1">Tire uma foto para ser o primeiro a deixar a sua marca!</p>
+                <p className="text-xs text-slate-500 font-medium">There are no memories registered yet.</p>
+                <p className="text-[10px] text-slate-400 mt-1">Take a photo to be the first to leave your mark!</p>
               </div>
             ) : (
               <>
@@ -525,7 +525,7 @@ export default function GuestHouseApp() {
                     <div key={photo.id} className={`break-inside-avoid relative rounded-xl overflow-hidden shadow-sm border ${photo.isUser ? 'border-2 border-emerald-500 shadow-md animate-in zoom-in-95 duration-300' : 'border-slate-200'} bg-white group`}>
                       <img 
                         src={photo.src} 
-                        alt={`Fotografia Histórica`} 
+                        alt={`Historical Photo`} 
                         className="w-full h-auto object-cover"
                         loading="lazy"
                       />
@@ -535,7 +535,7 @@ export default function GuestHouseApp() {
                         <button 
                           onClick={handleDeletePhoto}
                           className="absolute top-2 right-2 bg-red-600/90 hover:bg-red-700 text-white p-1.5 rounded-md backdrop-blur-sm transition-colors shadow-sm z-10"
-                          title="Apagar Fotografia"
+                          title="Delete Photo"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
@@ -545,7 +545,7 @@ export default function GuestHouseApp() {
                         <div className="text-white text-[10px] font-bold truncate flex items-center gap-1.5">
                           {photo.author} <img src={getFlagImageUrl(photo.flag)} alt="bandeira" className="w-5 h-3.5 rounded-sm shadow-sm" />
                         </div>
-                        <p className="text-slate-300 text-[8px]">{photo.isUser ? `ID: ${reservationId} • Hoje` : `${photo.date} • ${photo.tag}`}</p>
+                        <p className="text-slate-300 text-[8px]">{photo.isUser ? `ID: ${reservationId} • Today` : `${photo.date} • ${photo.tag}`}</p>
                       </div>
                     </div>
                   ))}
@@ -556,7 +556,7 @@ export default function GuestHouseApp() {
                     onClick={() => setVisiblePhotosCount(prev => prev + 4)} 
                     className="w-full mt-4 py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold uppercase tracking-wide rounded-md transition-colors flex justify-center items-center gap-2"
                   >
-                    <ImageIcon className="w-4 h-4" /> Ver Mais Fotos
+                    <ImageIcon className="w-4 h-4" /> View More Photos
                   </button>
                 )}
               </>
